@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="components/loader.css">
     
     <script>
+         var time = 3;
         function omikuji (){
             var dice = Math.floor(Math.random() * 5);
             var image_name;
@@ -22,12 +23,21 @@
             } else {
                image_name = "omikuji-kyou.png";
             }
+         if(time > 0){
+           time--;
+           var msg = "後" + time + "回";
+           document.getElementById("count").innerHTML = msg;
+         }
         
+       
+
             document.getElementById("saisyo").style["display"] = "none";
             document.getElementById("kekka").src = "images/" + image_name;
             document.getElementById("kekka").style["display"] = "inline";
             document.getElementById("button").src = "images/omikuji-btn-yarinaosu.png";
         }
+        
+
     </script>
     <style>
         body {
@@ -39,7 +49,7 @@
             text-align: center;
         }
         #hako {
-            margin-top: 15%;
+            margin-top: 10%;
             margin-left : 0;
             margin-right : 0;
         }
@@ -47,10 +57,17 @@
         img {
            width: 70%; 
         }
+        
+        #count {
+          position: absolute;
+          bottom: 100px;
+          width: 100%
+         
+        }
 
         #bottombar {
             position: absolute;
-            bottom: 30px;
+            bottom: 10px;
             width: 100%;
         }
     </style>
@@ -60,8 +77,11 @@
         <img id="saisyo" src="images/omikuji-box.png" />
         <img id="kekka" style="display : none;"/>
     </div>
-    <div id="bottombar">
+  <div id="bottombar">
         <img id="button" src="images/omikuji-btn-hajimeru.png" onclick="omikuji()">
     </div>
+      <div id="count" class="text-white bg-secondary">
+        </div>  
+
 </body>
 </html>

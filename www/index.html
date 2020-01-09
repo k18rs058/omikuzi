@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="components/loader.css">
     
     <script>
+      
          var time = 3;
         function omikuji (){
             var dice = Math.floor(Math.random() * 5);
@@ -39,13 +40,15 @@
         function gameover (){
            document.getElementById("kekka").style["display"] = "none";
            document.getElementById("count").style["display"] = "none";
-           msg = "GAMEOVER";
+           msg = "END";
            document.getElementById("end").textContent = msg;
 
         }
         
 
     </script>
+    <script src="js/ncmbController.js"></script>
+
     <style>
         body {
             background-image: url("images/omikuji-bg.png");
@@ -68,15 +71,13 @@
         #count {
           position: absolute;
           bottom: 100px;
-          text-align:center; 
           font-size: 3em;
         }
 
         #end {
           position: absolute;
           top: 50%;
-          text-align: center;
-          font-size: 2em;
+          font-size: 4em;
         }
 
         #bottombar {

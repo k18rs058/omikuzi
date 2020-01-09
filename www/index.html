@@ -26,15 +26,22 @@
          if(time > 0){
            time--;
            var msg = "後" + time + "回";
-           document.getElementById("count").innerHTML = msg;
-         }
-        
-       
-
+           document.getElementById("count").textContent = msg;
             document.getElementById("saisyo").style["display"] = "none";
             document.getElementById("kekka").src = "images/" + image_name;
             document.getElementById("kekka").style["display"] = "inline";
             document.getElementById("button").src = "images/omikuji-btn-yarinaosu.png";
+         } else {
+           gameover();
+         }
+        
+        }
+        function gameover (){
+           document.getElementById("kekka").style["display"] = "none";
+           document.getElementById("count").style["display"] = "none";
+           msg = "GAMEOVER";
+           document.getElementById("end").textContent = msg;
+
         }
         
 
@@ -61,8 +68,15 @@
         #count {
           position: absolute;
           bottom: 100px;
-          width: 100%
-         
+          text-align:center; 
+          font-size: 3em;
+        }
+
+        #end {
+          position: absolute;
+          top: 50%;
+          text-align: center;
+          font-size: 2em;
         }
 
         #bottombar {
@@ -80,8 +94,8 @@
   <div id="bottombar">
         <img id="button" src="images/omikuji-btn-hajimeru.png" onclick="omikuji()">
     </div>
-      <div id="count" class="text-white bg-secondary">
-        </div>  
+      <div id="count"> </div>  
+      <div id="end"/></div>
 
 </body>
 </html>
